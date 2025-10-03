@@ -8,37 +8,44 @@ import DownloadButton from "./components/DownloadButton";
 export default function App() {
   const [originalImage, setOriginalImage] = useState<string | null>(null);
   const [processedImage, setProcessedImage] = useState<string | null>(null);
+  // const [loading, setLoading] = useState(false);
 
   const handleUpload = async (file: File) => {
   // Show original image
   const reader = new FileReader();
   reader.onload = () => setOriginalImage(reader.result as string);
   reader.readAsDataURL(file);
+  setProcessedImage(reader.result as string);
 
-  try {
-    const formData = new FormData();
-    formData.append("file", file);
 
-    const res = await fetch("https://bgremove.azurewebsites.net/predict", {
-      method: "POST",
-      body: formData,
-    });
+//   try {
+//     setLoading(true);             // 🔹 Start loading
+//     setProcessedImage(null);      // Reset old result if any
+//     const formData = new FormData();
+//     formData.append("file", file);
 
-    if (!res.ok) {
-      throw new Error("Failed to remove background");
-    }
+//     const res = await fetch("https://bgremove.azurewebsites.net/predict", {
+//       method: "POST",
+//       body: formData,
+//     });
 
-    // Get the response as a blob
-    const blob = await res.blob();
-    const processedUrl = URL.createObjectURL(blob);
+//     if (!res.ok) {
+//       throw new Error("Failed to remove background");
+//     }
 
-    // Update processed image
-    setProcessedImage(processedUrl);
+//     // Get the response as a blob
+//     const blob = await res.blob();
+//     const processedUrl = URL.createObjectURL(blob);
 
-  } catch (err) {
-    console.error(err);
-    alert("Error removing background");
-  }
+//     // Update processed image
+//     setProcessedImage(processedUrl);
+
+//   } catch (err) {
+//     console.error(err);
+//     alert("Error removing background");
+//   } finally {
+//     setLoading(false); 
+//   }
 };
 
 

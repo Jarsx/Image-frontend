@@ -16,9 +16,9 @@ export default function Preview({ original, processed }: PreviewProps) {
   }
 
   return (
-    <Grid container direction="column" justifyContent={"center"}>
+    <Grid container direction="row" spacing={10} justifyContent={"center"}>
       <Grid>
-          <Typography variant="subtitle1" fontWeight={"bold"} mb={1} color="text.secondary">
+          <Typography variant="subtitle1" fontWeight={"bold"} mb={1}>
             Original
           </Typography>
           <Card sx={{ boxShadow: 4, borderRadius: 3, display: "inline-block" }}>
@@ -28,15 +28,15 @@ export default function Preview({ original, processed }: PreviewProps) {
               alt="Original"
               sx={{
                 display: "block",
-                maxWidth: "100%", // prevents overflow
-                height: "auto",   // keeps aspect ratio
+                maxWidth:  "100%", // prevents overflow
+                height: "250px",   // keeps aspect ratio
               }}
             />
           </Card>
       </Grid>
 
       <Grid>
-        <Typography variant="subtitle1" mb={1} fontWeight={"bold"} color="text.secondary">
+        <Typography variant="subtitle1" mb={1} fontWeight={"bold"} >
           Background Removed
         </Typography>
         <Card sx={{ boxShadow: 4, borderRadius: 3, display: "inline-block" }}>
@@ -47,7 +47,7 @@ export default function Preview({ original, processed }: PreviewProps) {
               sx={{
                 display: "block",
                 maxWidth: "100%", // prevents overflow
-                height: "250",   // keeps aspect ratio
+                height: "250px",   // keeps aspect ratio
               }}
             />
           </Card>

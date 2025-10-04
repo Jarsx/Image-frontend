@@ -9,7 +9,7 @@ interface PreviewProps {
 export default function Preview({ original, processed }: PreviewProps) {
   if (!original) {
     return (
-      <Typography variant="subtitle1" color="text.secondary">
+      <Typography variant="subtitle1" fontWeight="bold" color="text.secondary">
         Upload an image to see preview
       </Typography>
     );
@@ -18,7 +18,7 @@ export default function Preview({ original, processed }: PreviewProps) {
   return (
     <Grid container direction="column" justifyContent={"center"}>
       <Grid>
-          <Typography variant="subtitle1" mb={1}>
+          <Typography variant="subtitle1" fontWeight={"bold"} mb={1} color="text.secondary">
             Original
           </Typography>
           <Card sx={{ boxShadow: 4, borderRadius: 3, display: "inline-block" }}>
@@ -36,7 +36,7 @@ export default function Preview({ original, processed }: PreviewProps) {
       </Grid>
 
       <Grid>
-        <Typography variant="subtitle1" mb={1}>
+        <Typography variant="subtitle1" mb={1} fontWeight={"bold"} color="text.secondary">
           Background Removed
         </Typography>
         <Card sx={{ boxShadow: 4, borderRadius: 3, display: "inline-block" }}>

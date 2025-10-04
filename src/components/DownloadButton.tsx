@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { Download } from "@mui/icons-material";
 
 interface DownloadButtonProps {
@@ -19,8 +19,11 @@ export default function DownloadButton({ image }: DownloadButtonProps) {
       color="secondary"
       startIcon={<Download />}
       onClick={handleDownload}
+      sx={{ borderRadius: 5, px: 3, py: 1 }}
     >
+      <Typography fontWeight={"bold"}>
       Download Image
+      </Typography>
     </Button>
   );
 }

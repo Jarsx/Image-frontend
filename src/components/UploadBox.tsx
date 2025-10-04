@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import { CloudUpload } from "@mui/icons-material";
 
 interface UploadBoxProps {
@@ -18,8 +18,11 @@ export default function UploadBox({ onUpload }: UploadBoxProps) {
         variant="contained"
         component="label"
         startIcon={<CloudUpload />}
+        sx={{ borderRadius: 5, px: 3, py: 1 }}
       >
+        <Typography fontWeight={"bold"} >
         Upload Image
+        </Typography>
         <input type="file" accept="image/*" hidden onChange={handleFileChange} />
       </Button>
     </Box>
